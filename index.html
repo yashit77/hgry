@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <h2>Javascript closures</h2>
+        <p>counting with a local variable</p>
+        <button type="button" onclick="myfunction()">count</button>
+        <p id="1">0</p>
+        <p id="2">0</p>
+        <script>
+            const add=(function(){
+                let counter=0
+                return function(){counter+=1;return counter}
+            })();
+            function myfunction(){
+                
+                document.getElementById("1").innerHTML=add();
+                document.getElementById("2").innerHTML=add();
+                document.getElementById("1").innerHTML=add();
+                document.getElementById("2").innerHTML=add();
+            }
+        </script>
+        <p id="3">0</p>
+        <script>
+        
+            class per{
+                constructor(name,year){
+                    this.name=name;
+                    this.year=year;
+                }
+                age(){
+                    const date=new Date();
+                    return date.getFullYear()-this.year;
+
+                }
+            }
+            const P1=new per("xxx",2012)
+            document.getElementById("3").innerHTML="my age"+P1.age()+"years."
+        </script>
+    </body>
+</html>
